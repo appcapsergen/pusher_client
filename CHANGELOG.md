@@ -1,5 +1,9 @@
-## 2.0.0 - August 31, 2021
+## 2.1.0 - March 31, 2022
+* Updated package versions (dependencies, Android & iOS versions, etc.)
+* Fixed presence for iOS
+* Fixed pusher reinit
 
+## 2.0.0 - August 31, 2021
 * Upgraded to null safety [@nizwar](https://github.com/nizwar)
 
 ## 1.1.3 - January 24, 2021
