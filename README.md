@@ -47,7 +47,7 @@ Add to your pubspec.yaml
 dependencies:
   pusher_client:
     git:
-      url: https://github.com/appcappsergen/pusher_client
+      url: https://github.com/appcapsergen/pusher_client
 ```
 
 ## Configuration
