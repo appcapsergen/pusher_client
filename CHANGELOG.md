@@ -1,3 +1,7 @@
+## 2.1.1 - May 4, 2022
+* Excluded arm64 for iOS simulators
+* Updated example project
+
 ## 2.1.0 - March 31, 2022
 * Updated package versions (dependencies, Android & iOS versions, etc.)
 * Fixed presence for iOS
