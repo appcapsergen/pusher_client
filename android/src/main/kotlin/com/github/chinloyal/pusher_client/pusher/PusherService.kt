@@ -8,7 +8,7 @@ import com.google.gson.Gson
 import com.pusher.client.Pusher
 import com.pusher.client.PusherOptions
 import com.pusher.client.connection.ConnectionState
-import com.pusher.client.util.HttpAuthorizer
+import com.pusher.client.util.HttpChannelAuthorizer
 import com.pusher.client.util.UrlEncodedConnectionFactory
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.EventChannel
@@ -91,10 +91,10 @@ class PusherService : MChannel {
                 val encodedConnectionFactory = if (headersMap.containsValue("application/json"))
                     JsonEncodedConnectionFactory() else UrlEncodedConnectionFactory()
 
-                val authorizer = HttpAuthorizer(endpoint,  encodedConnectionFactory)
+                val authorizer = HttpChannelAuthorizer(endpoint,  encodedConnectionFactory)
                 authorizer.setHeaders(headersMap)
 
-                pusherOptions.authorizer = authorizer
+                pusherOptions.channelAuthorizer = authorizer
             }
 
             pusherOptions.setHost(options.getString("host"))

@@ -4,5 +4,5 @@ import androidx.annotation.NonNull
 import io.flutter.plugin.common.BinaryMessenger
 
 interface MChannel {
-    fun register (@NonNull messenger: BinaryMessenger)
+    fun register(@NonNull messenger: BinaryMessenger)
 }

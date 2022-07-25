@@ -9,20 +9,21 @@ import com.github.chinloyal.pusher_client.pusher.PusherService.Companion.errorLo
 import com.pusher.client.connection.ConnectionEventListener
 import com.pusher.client.connection.ConnectionStateChange
 import org.json.JSONObject
-import java.lang.Exception
 
-class ConnectionListener: ConnectionEventListener {
-    val eventStreamJson = JSONObject();
+class ConnectionListener : ConnectionEventListener {
+    private val eventStreamJson = JSONObject()
 
     override fun onConnectionStateChange(change: ConnectionStateChange) {
         Handler(Looper.getMainLooper()).post {
             try {
-                val connectionStateChange = JSONObject(mapOf(
+                val connectionStateChange = JSONObject(
+                    mapOf(
                         "currentState" to change.currentState.toString(),
                         "previousState" to change.previousState.toString()
-                ))
+                    )
+                )
 
-                debugLog("[${change.currentState.toString()}]")
+                debugLog("[${change.currentState}]")
 
                 eventStreamJson.put("connectionStateChange", connectionStateChange)
 
@@ -39,11 +40,13 @@ class ConnectionListener: ConnectionEventListener {
     override fun onError(message: String, code: String?, ex: Exception?) {
         Handler(Looper.getMainLooper()).post {
             try {
-                val connectionError = JSONObject(mapOf(
+                val connectionError = JSONObject(
+                    mapOf(
                         "message" to message,
                         "code" to code,
                         "exception" to ex?.message
-                ))
+                    )
+                )
 
                 debugLog("[ON_ERROR]: message: $message, code: $code")
 
@@ -51,7 +54,7 @@ class ConnectionListener: ConnectionEventListener {
                 PusherService.eventSink?.success(eventStreamJson.toString())
             } catch (e: Exception) {
                 e.message?.let { errorLog(it) }
-                if (PusherService.enableLogging) {
+                if (enableLogging) {
                     e.printStackTrace()
                 }
             }

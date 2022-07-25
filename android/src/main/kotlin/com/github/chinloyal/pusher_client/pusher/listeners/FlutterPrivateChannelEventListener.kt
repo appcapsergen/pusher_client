@@ -6,25 +6,29 @@ import com.github.chinloyal.pusher_client.pusher.PusherService.Companion.enableL
 import com.github.chinloyal.pusher_client.pusher.PusherService.Companion.errorLog
 import com.pusher.client.channel.PrivateChannelEventListener
 import com.pusher.client.channel.PusherEvent
-import java.lang.Exception
 
-class FlutterPrivateChannelEventListener: FlutterBaseChannelEventListener(), PrivateChannelEventListener {
+class FlutterPrivateChannelEventListener : FlutterBaseChannelEventListener(),
+    PrivateChannelEventListener {
     companion object {
         val instance = FlutterPrivateChannelEventListener()
     }
 
     override fun onAuthenticationFailure(message: String, e: Exception) {
         errorLog(message)
-        if(enableLogging) e.printStackTrace()
+        if (enableLogging) e.printStackTrace()
     }
 
     override fun onSubscriptionSucceeded(channelName: String) {
-        this.onEvent(PusherEvent(mapOf(
-                "event" to Constants.SUBSCRIPTION_SUCCEEDED.value,
-                "channel" to channelName,
-                "user_id" to null,
-                "data" to null
-        )))
+        this.onEvent(
+            PusherEvent(
+                mapOf(
+                    "event" to Constants.SUBSCRIPTION_SUCCEEDED.value,
+                    "channel" to channelName,
+                    "user_id" to null,
+                    "data" to null
+                )
+            )
+        )
         PusherService.debugLog("[PRIVATE] Subscribed: $channelName")
     }
 }
