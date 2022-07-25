@@ -1,3 +1,7 @@
+## 2.1.3 - July 25, 2022
+* Fixed Gson not found error
+* Code clean-up
+
 ## 2.1.2 - July 25, 2022
 * Bumped iOS minimum version to 13.0 (necessary)
 * Upgraded Android pusher-java-client version to 2.4.0
