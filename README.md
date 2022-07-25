@@ -6,7 +6,7 @@
 [![Twitter](https://img.shields.io/badge/twitter-@chinloyal-blue.svg?style=flat&logo=twitter)](https://twitter.com/chinloyal)
 
 A Pusher Channels client plugin for Flutter targeting Android and iOS. It wraps
-[pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) v2.2.6 and [PusherSwiftWithEncryption](https://github.com/pusher/pusher-websocket-swift) v8.0.0.
+[pusher-websocket-java](https://github.com/pusher/pusher-websocket-java) v2.4.0 and [PusherSwift](https://github.com/pusher/pusher-websocket-swift) v10.1.0
 
 For tutorials and more in-depth information about Pusher Channels, visit the [official docs](https://pusher.com/docs/channels).
 
@@ -15,7 +15,7 @@ This client works with official pusher servers and laravel self hosted pusher we
 ## Supported Platforms & Deployment Targets
 
 - Android API 16 and above
-- iOS 9.0 and above
+- iOS 13.0 and above
 
 ## Table of Contents
 
@@ -54,7 +54,7 @@ dependencies:
 
 ### For iOS
 
-Set the minimum deployment target in the Podfile to 9.0. Go to `ios/Podfile`, then uncomment this line:
+Set the minimum deployment target in the Podfile to 13.0. Go to `ios/Podfile`, then uncomment this line:
 
 ```Podfile
 # platform :ios, '8.0'
@@ -63,7 +63,7 @@ Set the minimum deployment target in the Podfile to 9.0. Go to `ios/Podfile`, th
 Change it to:
 
 ```Podfile
-platform :ios, '9.0'
+platform :ios, '13.0'
 ```
 
 You may have an issue subscribing to private channels if you're using a local pusher server like [laravel-websockets](https://github.com/beyondcode/laravel-websockets), to fix this go to `ios/Runner/Info.plist` and add:
