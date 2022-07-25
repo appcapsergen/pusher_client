@@ -1,3 +1,11 @@
+## 2.1.2 - July 25, 2022
+* Bumped iOS minimum version to 13.0 (necessary)
+* Upgraded Android pusher-java-client version to 2.4.0
+* Upgraded iOS PusherSwift version to 10.1.0
+* Upgraded gradle to newest version
+* Upgraded Kotlin to newest version
+* Upgraded dependencies
+
 ## 2.1.1 - May 4, 2022
 * Excluded arm64 for iOS simulators
 * Updated example project
