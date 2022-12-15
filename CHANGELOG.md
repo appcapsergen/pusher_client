@@ -1,3 +1,10 @@
+## 2.1.4 - December 15, 2022
+* Upgraded pusher_client and used packages to newest version
+* Upgraded pusher_client projects (Android & iOS) versions
+* Upgraded Android pusher-java-client version to 2.4.4
+* Upgraded iOS PusherSwift version to 10.1.2
+* Code clean-up
+
 ## 2.1.3 - July 25, 2022
 * Fixed Gson not found error
 * Code clean-up
