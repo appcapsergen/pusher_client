@@ -5,18 +5,18 @@ import org.json.JSONObject
 
 class JsonEncodedConnectionFactory : ConnectionFactory() {
     override fun getCharset(): String {
-        return "UTF-8";
+        return "UTF-8"
     }
 
     override fun getContentType(): String {
-        return "application/json";
+        return "application/json"
     }
 
     override fun getBody(): String {
-        val data: JSONObject = JSONObject();
-        data.put("channel_name", channelName);
-        data.put("socket_id", socketId);
+        val data = JSONObject()
+        data.put("channel_name", channelName)
+        data.put("socket_id", socketId)
 
-        return data.toString();
+        return data.toString()
     }
 }

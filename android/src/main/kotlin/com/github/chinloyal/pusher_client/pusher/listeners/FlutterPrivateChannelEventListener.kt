@@ -4,6 +4,7 @@ import com.github.chinloyal.pusher_client.core.utils.Constants
 import com.github.chinloyal.pusher_client.pusher.PusherService
 import com.github.chinloyal.pusher_client.pusher.PusherService.Companion.enableLogging
 import com.github.chinloyal.pusher_client.pusher.PusherService.Companion.errorLog
+import com.google.gson.JsonObject
 import com.pusher.client.channel.PrivateChannelEventListener
 import com.pusher.client.channel.PusherEvent
 
@@ -19,15 +20,11 @@ class FlutterPrivateChannelEventListener : FlutterBaseChannelEventListener(),
     }
 
     override fun onSubscriptionSucceeded(channelName: String) {
+        val jsonObject = JsonObject()
+        jsonObject.addProperty("event", Constants.SUBSCRIPTION_SUCCEEDED.value)
+        jsonObject.addProperty("channel", channelName)
         this.onEvent(
-            PusherEvent(
-                mapOf(
-                    "event" to Constants.SUBSCRIPTION_SUCCEEDED.value,
-                    "channel" to channelName,
-                    "user_id" to null,
-                    "data" to null
-                )
-            )
+            PusherEvent(jsonObject)
         )
         PusherService.debugLog("[PRIVATE] Subscribed: $channelName")
     }
